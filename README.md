@@ -1,3 +1,8 @@
-Before running the server, it requires a python virtual environment and django installation.
+# Retalica - Django/PRAW Backend
 
-In the same directory as this file,
+Before running the server, you'll need Python (standard install) and Django (pip install django) installed.
+
+Navigate to RetalicaBackend/Retalica/ and run
+    python manage.py runserver
+
+Navigate to the given local url, add either /topStocks or /searchStock

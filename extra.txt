@@ -14,3 +14,8 @@ My ideas of more efficient topStocks:
         - How much of the company do we include? Just one word?
             - Current approach looking for company in title doesn't have this problem,
               but requires looking through every company 500 times, which isn't scalable
+
+
+- Testing with 500 company names, it's actually not THAT slow if we have reasonable limits. 9s for 100 submissions, 20s for 500 submissions when sorting by hot.
+    - Can also change sorting type because not all types make sense to have the same amount of submission data.
+    - Ask the group: What's the balance here

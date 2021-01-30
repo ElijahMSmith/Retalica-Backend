@@ -13,12 +13,12 @@ import os
 def topStocks(reddit):
     # This should be expanded as much as text editing allows
     # However, if this becomes much larger, we need to increase efficiency here
-    NYSE = open('NYSE_Top_100.txt', 'r')
+    NYSE = open('Fortune500.txt', 'r')
     mentionCount = {}
 
     line = NYSE.readline()
     while line != '':
-        line = line.replace('\n', '').lstrip().rstrip()
+        line = line.replace('\n', '').lstrip().rstrip().lower()
         mentionCount[line] = 0
         line = NYSE.readline()
 
@@ -40,7 +40,7 @@ def topStocks(reddit):
     for submission in reddit.subreddit("wallstreetbets").hot(limit=500):
         for company in mentionCount:
             currentCount = mentionCount[company]
-            if submission.title.lower().find(company) >= 0:
+            if submission.title.lower().find(company) != -1:
                 mentionCount[company] = currentCount + 1
 
     # 6th listing is ignored, just overwrites itself 
