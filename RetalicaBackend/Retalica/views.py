@@ -13,22 +13,15 @@ import os
 def topStocks(reddit):
     # This should be expanded as much as text editing allows
     # However, if this becomes much larger, we need to increase efficiency here
-    NYSE = open('Fortune500.txt', 'r')
+    companyListFull = open('Fortune500_condensed.txt', 'r')
+    companyListShorthand = open('Fortune500_condensed.txt', 'r')
     mentionCount = {}
 
-    line = NYSE.readline()
+    line = companyListShorthand.readline()
     while line != '':
         line = line.replace('\n', '').lstrip().rstrip().lower()
         mentionCount[line] = 0
-        line = NYSE.readline()
-
-    '''
-    Just for evaluation
-    mentionCount['target'] = 3
-    mentionCount['Pfizer'] = 5
-    mentionCount['PepsiCo'] = 5
-    mentionCount['Nov'] = 2
-    '''
+        line = companyListShorthand.readline()
 
     reddit = praw.Reddit(
         user_agent="Retalica Stock Popularity Analysis",
@@ -62,7 +55,7 @@ def topStocks(reddit):
                 topFiveValues[i] = count
                 break
 
-    NYSE.close()
+    companyListShorthand.close()
     return JsonResponse(
         {
             "first": {
