@@ -1,28 +1,16 @@
+Currently: Reddit APi access works like a charm and everything that's written here is functional
 
-https://praw.readthedocs.io/en/latest/code_overview/models/submission.html
-created_utc: Time the submission was created, represented in Unix Time.
-num_comments: The number of comments on the submission.
-score: The number of upvotes for the submission.
-title: The title of the submission.
-upvote_ratio: The percentage of upvotes from all votes on the submission.
+What still needs to happen:
+- HTTP connection to and from Flutter
+- Performance improvements when checking against company names
+- Expanded company list (include important stocks)
+- Additional judging criterea, possible our own metric
 
+- Also need to expand list of stocks. Currently doing some mass text editing for that.
 
-https://praw.readthedocs.io/en/latest/code_overview/models/submission.html
-created_utc: Time the submission was created, represented in Unix Time.
-num_comments: The number of comments on the submission.
-score: The number of upvotes for the submission.
-title: The title of the submission.
-upvote_ratio: The percentage of upvotes from all votes on the submission.
-
-'''
-Check for what stocks are posted about the most
-Upvotes and quantity of posts weigh into most popular stocks
-
-Develop how we're weighing these stocks and return these values to Flutter, 
-which will deal with stocks API and caching values
-
-After we get ticker information, we can go back to reddit API - 
-Two main functions:
-    - JSON file that gives top five
-    - Searching for a specific stock and its information
-'''
+My ideas of more efficient topStocks:
+    - Include more stocks, but in a sorted array (can pre-sort before putting in file)
+    - Binary search for each word of title and check if it is in any of company names
+        - How much of the company do we include? Just one word?
+            - Current approach looking for company in title doesn't have this problem,
+              but requires looking through every company 500 times, which isn't scalable
