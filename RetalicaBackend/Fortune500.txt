@@ -498,5 +498,3 @@ Simon Property Group
 Cerner
 Post Holdings
 Huntington Bancshares
-GME
-robinhood
