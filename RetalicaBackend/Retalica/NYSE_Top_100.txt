@@ -1,0 +1,83 @@
+3M
+Abbott Labs 
+Accenture
+AIG
+Altria
+AT&T
+Baker Hughes
+Bank of America
+Bank of NY Mellon
+Baxter
+Berkshire Hathaway
+Boeing
+Bristol-Myers Squibb
+Caterpillar
+Citigroup
+Coca-Cola
+Colgate-Palmolive
+Corning
+Danaher
+Deere&Company
+Devon Energy
+Dominion Energy 
+Duke Energy
+DuPont De Nemours 
+Eli Lilly
+Emerson
+EOG Resources
+Exelon
+Exxon Mobil
+FedEx
+Ford Motor
+Franklin Resources
+Freeport-McMoran
+General Dynamics
+General Electric
+General Mills
+General Motors
+Goldman Sachs
+Halliburton
+Home Depot
+Honeywell
+HP Inc
+IBM
+Illinois Tool Works
+J&J
+JPMorgan
+Kimberly-Clark
+Las Vegas Sands
+Lockheed Martin
+Lowe’s
+Mastercard 
+McDonald’s
+Merck&Co 
+MetLife
+Morgan Stanley
+Newmont Goldcorp
+Nike
+Nov 
+Occidental
+PepsiCo
+Pfizer
+Philip Morris
+PNC Financial
+Procter&Gamble
+Prudential Financial
+Raytheon Technologies
+Schlumberger
+Simon Property
+Southern
+Southern Copper
+Target
+Travelers
+U.S. Bancorp
+Union Pacific 
+United Parcel Service
+UnitedHealth
+Verizon
+Visa A
+Walgreens Boots
+Walmart
+Walt Disney 
+Wells Fargo&Co	 
+Yum! Brands
