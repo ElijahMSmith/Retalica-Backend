@@ -1,5 +1,5 @@
 3M
-Abbott Labs 
+Abbott Labs
 Accenture
 AIG
 Altria
@@ -19,9 +19,9 @@ Corning
 Danaher
 Deere&Company
 Devon Energy
-Dominion Energy 
+Dominion Energy
 Duke Energy
-DuPont De Nemours 
+DuPont De Nemours
 Eli Lilly
 Emerson
 EOG Resources
@@ -48,14 +48,14 @@ Kimberly-Clark
 Las Vegas Sands
 Lockheed Martin
 Lowe’s
-Mastercard 
+Mastercard
 McDonald’s
-Merck&Co 
+Merck&Co
 MetLife
 Morgan Stanley
 Newmont Goldcorp
 Nike
-Nov 
+Nov
 Occidental
 PepsiCo
 Pfizer
@@ -71,13 +71,13 @@ Southern Copper
 Target
 Travelers
 U.S. Bancorp
-Union Pacific 
+Union Pacific
 United Parcel Service
 UnitedHealth
 Verizon
 Visa A
 Walgreens Boots
 Walmart
-Walt Disney 
-Wells Fargo&Co	 
+Walt Disney
+Wells Fargo&Co
 Yum! Brands
