@@ -7,18 +7,18 @@ AIG
 AK Steel
 AT&T
 AbbVie
-Abbott Laboratories
+Abbott
 Activision Blizzard
 Adobe
 Advance Auto
 Advanced Micro Devices
 Aflac
-Air Products
+Air Products & Chemicals
 Alaska Air
 Albertsons
 Alcoa
 Alleghany
-Alliance Data
+Alliance
 Allstate
 Ally Financial
 Alphabet
@@ -28,9 +28,9 @@ Amazon
 Ameren
 American Airlines
 American Axle
-American Electric Power
+American Electric
 American Express
-American Family Insurance
+American Family
 American Financial
 American Tower
 Ameriprise Financial
@@ -45,13 +45,13 @@ Apache
 Apple
 Applied Materials
 Aramark
-Archer Daniels Midland
+Archer Daniels
 Arrow Electronics
 Arthur J. Gallagher
-Asbury
-Ascena Retail
+Asbury Auto
+Ascena
 Assurant
-Auto-Owners
+Auto-Owners Insurance
 AutoNation
 AutoZone
 Autoliv
@@ -60,30 +60,32 @@ Avantor
 Avery Dennison
 Avis Budget
 Avnet
-BJ's Wholesale Club
+BJ's
 Baker Hughes
 Ball
 Bank of America
-Baxter
+Bank of New York Mellon
+Baxter International
 Beacon Roofing
 Becton Dickinson
 Bed Bath & Beyond
 Berkshire Hathaway
-Berry
+Berry Global
 Best Buy
 Biogen
 BlackRock
 Blackstone
 Boeing
-Booking Holdings
+Booking
 Booz Allen Hamilton
 BorgWarner
 Boston Scientific
 Brighthouse
-Bristol-Myers Squibb
+Bristol-Myers
 Broadcom
+Builders FirstSource
 Burlington
-C.H. Robinson Worldwide
+C.H. Robinson
 CBRE
 CDW
 CHS
@@ -95,7 +97,7 @@ Calpine
 Campbell Soup
 Capital One
 CarMax
-Cardinal Health
+Cardinal
 Casey's
 Caterpillar
 Celanese
@@ -104,8 +106,8 @@ CenterPoint
 CenturyLink
 Cerner
 Charles Schwab
-Charter Communications
-Cheniere
+Charter Comm
+Cheniere Energy
 Chesapeake Energy
 Chevron
 Cigna
@@ -121,13 +123,12 @@ Colgate-Palmolive
 Comcast
 CommScope
 Commercial Metals
-Community Health Systems
+Community Health
 Conagra
 ConocoPhillips
 Consolidated Edison
-Constellation
-Coors
-Core-Mark Holding
+Constellation Brands
+Core-Mark
 Corning
 Corteva
 Costco
@@ -136,10 +137,10 @@ Crown Castle
 Crown Holdings
 Cummins
 D.R. Horton
-DCP Midstream
+DCP
 DISH
 DTE
-DXC Technology
+DXC
 DaVita
 Dana
 Danaher
@@ -152,56 +153,55 @@ Delta
 Devon Energy
 Dick's
 Dillard's
-Discover Financial Services
+Discover Financial
 Discovery
 Dollar General
 Dollar Tree
-Dominion
+Dominion Energy
 Dover
 Dow
 DuPont
 Duke Energy
 EMCOR
-EOG Resources
+EOG
 Eastman Chemical
 Ecolab
-Edison Int
+Edison International
 Eli Lilly
-Emerson Electric
+Emerson
 EnLink Midstream
 Energy Transfer
 Entergy
-Enterprise Products Partners
-Equitable
+Enterprise Products
+Equitable Holdings
 Erie Insurance
 Estee Lauder
-Eversource
+Eversource Energy
 Exelon
 Expedia
 Expeditors Intl.
-Exxon
+Exxon Mobil
 FM
 Facebook
 Fannie Mae
-Farmers Insurance Exchange
+Farmers Insurance
 FedEx
-Fidelity
-Fidelity
+Fidelity National Financial
+Fidelity National Information
 Fifth Third
 First American
 FirstEnergy
-FirstSource
 Fiserv
 Fluor
 Foot Locker
-Ford
+Ford Motor
 Fortive
-Fortune Brands
+Fortune Brands Home
 Fox
 Franklin Resources
 Freddie Mac
 Freeport-McMoRan
-Frontier Communications
+Frontier Comm
 GameStop
 Gap
 General Dynamics
@@ -209,15 +209,15 @@ General Electric
 General Mills
 General Motors
 Genuine Parts
-Genworth
+Genworth Financial
 Gilead Sciences
 Global Partners
 Goldman Sachs
-Goodyear Tire & Rubber
+Goodyear
 Graphic Packaging
 Graybar
 Group 1 Automotive
-Guardian Life
+Guardian Life Ins
 HCA
 HD Supply
 HP
@@ -233,7 +233,7 @@ Hilton
 HollyFrontier
 Home Depot
 Honeywell
-Hormel
+Hormel Foods
 Howmet Aerospace
 Humana
 Huntington Bancshares
@@ -241,14 +241,14 @@ Huntington Ingalls
 Huntsman
 IBM
 IQVIA
-Icahn
-Illinois Tool Works
+Icahn Enterprises
+Illinois Tool
 Ingredion
 Insight Enterprises
 Intel
 Intercontinental Exchange
 International Paper
-Interpublic
+Interpublic Group
 Intuit
 J.B. Hunt
 J.C. Penney
@@ -273,7 +273,7 @@ L Brands
 L3Harris
 LKQ
 Laboratory Corp
-Lam Research
+Lam
 Land O'Lakes
 Las Vegas Sands
 Lear
@@ -288,47 +288,48 @@ Live Nation
 Lockheed Martin
 Loews
 Lowe's
-M&T
+M&T Bank
 MGM
 Macy's
 Magellan
 ManpowerGroup
-Marathon
+Marathon Petroleum
 Markel
 Marriott
 Marsh & McLennan
 MasTec
 Masco
-Massachusetts Mutual Life
+Massachusetts Mutual
 Mastercard
 McDonald's
 McKesson
 Merck
 MetLife
-Micron Technology
+Micron
 Microsoft
 Mohawk
-Molina Healthcare
+Molina
+Coors
 Mondelez
 Morgan Stanley
 Mosaic
 Motorola
-Murphy USA
+Murphy
 Mutual of Omaha
 NCR
-NGL Energy
-NRG Energy
+NGL
+NRG
 NVR
+Varco
 Nationwide
 Navistar
 NetApp
 Netflix
 New York Life
-New York Mellon
 Newell
 Newmont
 News Corp
-NextEra Energy
+NextEra
 Nike
 Nordstrom
 Norfolk Southern
@@ -339,7 +340,7 @@ Nucor
 Nvidia
 O'Reilly
 O-I Glass
-Occidental Petroleum
+Occidental
 Office Depot
 Old Republic
 Olin
@@ -350,18 +351,18 @@ Oshkosh
 Ovintiv
 Owens & Minor
 Owens Corning
-PBF Energy
+PBF
 PG&E
 PNC
-PPG Industries
+PPG
 PPL
 PVH
 Paccar
 Pacific Life
-Packaging Corp.
+Packaging Corp
 Parker-Hannifin
 PayPal
-Penske Automotive
+Penske
 PepsiCo
 Performance Food
 Peter Kiewit
@@ -383,37 +384,37 @@ Qualcomm
 Quanta
 Quest
 Qurate Retail
-R.R. Donnelley
+R.R. Donnelley & Sons
 Ralph Lauren
 Raymond James
 Raytheon
-Raytheon
+Raytheon Technologies
 Realogy
 Regeneron
 Regions Financial
-Reinsurance of America
+Reinsurance Group
 Reliance Steel
 Republic Services
 Rite Aid
 Robert Half
-Rockwell Automation
-Ross Stores
+Rockwell
+Ross
 Rush
 Ryder
-S&P Global
+S&P
 Sanmina
 Science Applications
 Seaboard
 Securian
 Sempra
 Sherwin-Williams
-Simon Property
+Simon
 Sonic Automotive
 Southern
-Southwest Airlines
+Southwest
 SpartanNash
-Spirit AeroSystems
-Stanley Black & Decker
+Spirit
+Stanley Black
 Starbucks
 State Farm
 State Street
@@ -435,34 +436,33 @@ Tenneco
 Tesla
 Texas Instruments
 Textron
-Thermo Fisher Scientific
+Thermo Fisher
 Thor
 Thrivent
 Toll Brothers
 Tractor Supply
-TravelCenter
+TravelCenters
 Travelers
 Truist Financial
-Tyson Foods
+Tyson
 U.S. Bancorp
 UGI
 US Foods
 USAA
-Uber Technologies
+Uber
 Ulta Beauty
 Union Pacific
 United Airlines
 United Natural Foods
 United Parcel Service
-United Rental
+United Rentals
 United States Steel
 UnitedHealth
-Univar
+Univar Solutions
 Universal Health
-Unum
+Unum Group
 VF
 Valero
-Varco
 Veritiv
 Verizon
 ViacomCBS
@@ -480,7 +480,7 @@ Waste Management
 Wayfair
 Wells Fargo
 WestRock
-Western & Southern Financial
+Western & Southern
 Western Digital
 Westinghouse
 Westlake Chemical
@@ -489,8 +489,8 @@ Whirlpool
 Williams
 Williams-Sonoma
 World Fuel Services
-Wynn Resorts
-XPO Logistics
+Wynn
+XPO
 Xcel
 Xerox
 Yum China
