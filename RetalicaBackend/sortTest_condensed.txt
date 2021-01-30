@@ -309,7 +309,7 @@ Micron Technology
 Microsoft
 Mohawk
 Molina Healthcare
-Mondelez International
+Mondelez
 Morgan Stanley
 Mosaic
 Motorola
@@ -402,7 +402,7 @@ Rush
 Ryder
 S&P Global
 Sanmina
-Science Applications International
+Science Applications
 Seaboard
 Securian
 Sempra

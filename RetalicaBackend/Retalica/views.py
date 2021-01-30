@@ -2,7 +2,9 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 import praw
 import json
-import os
+import logging
+
+logger = logging.getLogger(__name__)
 
 # If we want to include additional subreddits
 # subreddits = ["wallstreetbets"]
@@ -10,12 +12,15 @@ import os
 # Request should be incoming JSON with request for specific stock or top 5
 # Pick top 5 most discussed stocks on wallstreetbets currently from list
 
+# Load company data before each call so it's ready to go when server is started, not every HTTP request
+
 def topStocks(reddit):
     # This should be expanded as much as text editing allows
     # However, if this becomes much larger, we need to increase efficiency here
     companyListFull = open('Fortune500_condensed.txt', 'r')
     companyListShorthand = open('Fortune500_condensed.txt', 'r')
     mentionCount = {}
+    subCount = 0
 
     line = companyListShorthand.readline()
     while line != '':
@@ -31,15 +36,18 @@ def topStocks(reddit):
 
     # Needs several performance improvements here
     for submission in reddit.subreddit("wallstreetbets").hot(limit=500):
+        subCount += 1
         for company in mentionCount:
             currentCount = mentionCount[company]
             if submission.title.lower().find(company) != -1:
                 mentionCount[company] = currentCount + 1
 
+    print("Ran through " + str(subCount) + " submissions")
+
     # 6th listing is ignored, just overwrites itself 
         # Used to prevent index going out of bounds
-    topFiveNames = ["", "", "", "", "", ""]
-    topFiveValues = [-1, -1, -1, -1, -1, -1]
+    topFiveNames = ["", "", "", "", ""]
+    topFiveValues = [-1, -1, -1, -1, -1]
 
     for company in mentionCount:
         count = int(mentionCount[company])
@@ -48,7 +56,7 @@ def topStocks(reddit):
             # Future work could hold other details to break ties
             if count > topFiveValues[i]:
                 # Push all lower elements (including i) down one, then insert at i
-                for j in range(4, i - 1, -1):
+                for j in range(3, i-1, -1):
                     topFiveValues[j + 1] = topFiveValues[j]
                     topFiveNames[j + 1] = topFiveNames[j]
                 topFiveNames[i] = company
@@ -80,6 +88,10 @@ def topStocks(reddit):
             },
         }
     )
+
+    # Other engineering challenges:
+        # Fortune 500 list: binary tree or sorting and binary search?
+        # Can we compare reddit word against company name effectively? Probably not.
 
 def searchStock(request):
     # Other methods of sorting
