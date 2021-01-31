@@ -266,7 +266,7 @@ def searchStock(request):
         popularity = math.log(comments * comment_ave) * num_submissions
 
     # Package for nice and tidy return to Flutter
-    d = 1/0
+    #d = 1/0
     return JsonResponse(
         {
             "stock": stock,
