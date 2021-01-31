@@ -50,6 +50,13 @@ def topStocks(reddit):
     )
 
     # Needs several performance improvements here
+
+    # company stats arrays
+    
+    upvote_ratio_sum = [0] * 500
+    sum_comments = [0] * 500
+    popularity = [0] * 500
+
     for submission in reddit.subreddit("wallstreetbets").hot(limit=500):
         for index in range(0, 500):
             matchCaseTitle = submission.title.lower()
@@ -57,17 +64,29 @@ def topStocks(reddit):
             currentSymbol = symbolArray[index].lower()
             if matchCaseTitle.find(currentCompany) != -1 or (len(currentSymbol) > 3 and matchCaseTitle.find(currentSymbol) != -1):
                 companyFrequency[index] += 1
+                upvote_ratio_sum[index] += submission.upvote_ratio
+                sum_comments[index] += submission.num_comments
+
+
+    #calculate popularity 
+    for index in range(0, 500):
+        if companyFrequency[index] == 0:
+            popularity[index] = 0
+        else:
+            popularity[index] = math.log(sum_comments[index] * (upvote_ratio_sum[index] / companyFrequency[index])) * companyFrequency[index]
 
     # 6th listing is ignored, just overwrites itself 
         # Used to prevent index going out of bounds
     topFiveNames = ["", "", "", "", ""]
     topFiveSymbols = ["", "", "", "", ""]
     topFiveValues = [-1, -1, -1, -1, -1]
+    topFivePops = [-1, -1, -1, -1, -1]
 
     for index in range(0, 500):
         currentCompany = fullCompanyArray[index]
         currentSymbol = symbolArray[index]
         count = companyFrequency[index]
+        pop = popularity[index]
         
         for j in range(0, 5):
             # Current approach favors earlier loaded stock in ties (since ties aren't grounds for removal
@@ -78,37 +97,44 @@ def topStocks(reddit):
                     topFiveNames[k + 1] = topFiveNames[k]
                     topFiveSymbols[k + 1] = topFiveSymbols[k]
                     topFiveValues[k + 1] = topFiveValues[k]
+                    topFivePops[k + 1] = topFivePops[k]
                 topFiveNames[j] = currentCompany
-                topFiveSymbols[j] = currentSymbol
+                topFiveSymbols[j] = currentSymbol.rstrip().lstrip()
                 topFiveValues[j] = count
+                topFivePops[j] = pop
                 break
 
     return JsonResponse(
         {
             "first": {
                 "name": topFiveNames[0],
-                "symbol": topFiveSymbols[0].rstrim().lstrip(),
+                "symbol": topFiveSymbols[0],
                 "ocurrences": topFiveValues[0],
+                "popularity": topFivePops[0],
             },
             "second": {
                 "name": topFiveNames[1],
-                "symbol": topFiveSymbols[1].rstrim().lstrip(),
+                "symbol": topFiveSymbols[1],
                 "ocurrences": topFiveValues[1],
+                "popularity": topFivePops[1],
             },
             "third": {
                 "name": topFiveNames[2],
-                "symbol": topFiveSymbols[2].rstrim().lstrip(),
+                "symbol": topFiveSymbols[2],
                 "ocurrences": topFiveValues[2],
+                "popularity": topFivePops[2],
             },
             "fourth": {
                 "name": topFiveNames[3],
-                "symbol": topFiveSymbols[3].rstrim().lstrip(),
+                "symbol": topFiveSymbols[3],
                 "ocurrences": topFiveValues[3],
+                "popularity": topFivePops[3],
             },
             "fifth": {
                 "name": topFiveNames[4],
-                "symbol": topFiveSymbols[4].rstrim().lstrip(),
+                "symbol": topFiveSymbols[4],
                 "ocurrences": topFiveValues[4],
+                "popularity": topFivePops[4],
             },
         }
     )
@@ -123,7 +149,6 @@ def searchStock(request):
     # stock = ''
     stock = 'gamestop' # For testing
     num_submissions = 0
-    upvote_weighted_comments = 0
     upvote_ratio_sum = 0
 
     comments = 0
@@ -163,21 +188,16 @@ def searchStock(request):
         if (len(stock) >= 3 and matchCaseTitle.find(stock) != -1) or (len(stockAlternative) >= 3 and matchCaseTitle.find(stockAlternative) != -1):
             num_submissions += 1
             upvote_ratio_sum += submission.upvote_ratio
-            upvote_weighted_comments += submission.upvote_ratio * submission.num_comments
             comments += submission.num_comments
 
-    math.log(comments)
     comment_ave = upvote_ratio_sum / num_submissions
     popularity = math.log(comments * comment_ave) * num_submissions
-    popularity2 = math.log(upvote_weighted_comments) * num_submissions
 
     return JsonResponse(
         {
             "submissionCount": num_submissions,
             "num_comments": comments,
-            "comment_ave": comment_ave,
-            "upvote_weighted_comments": upvote_weighted_comments,
             "popularity_score": popularity,
-            "popularity2_score": popularity2,
+
         }
     )
