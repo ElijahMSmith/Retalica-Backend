@@ -66,7 +66,7 @@ def topStocks(reddit):
     popularity = [0] * 500
 
     # For each post in r/wallstreetbets under hot (500 max retrieved),
-    for submission in reddit.subreddit("wallstreetbets").hot(limit=500):
+    for submission in reddit.subreddit("wallstreetbets").hot(limit=1000):
         # Check each if each company's short-form name appears in the title (case insensitive)
         for index in range(0, 500):
             matchCaseTitle = submission.title.lower()
@@ -84,7 +84,7 @@ def topStocks(reddit):
     # Calculate popularity metric for each company
     for index in range(0, 500):
         # If not mentioned in any post, avoid zero division and simply set to 0
-        if companyFrequency[index] == 0:
+        if companyFrequency[index] == 0 or sum_comments[index] == 0 or upvote_ratio_sum[index] == 0:
             popularity[index] = 0
         # Otherwise, calculate the popularity from saved data
         else:
@@ -168,7 +168,7 @@ def topStocks(reddit):
                 "ocurrences": topFiveValues[6],
                 "popularity": topFivePops[6],
             },
-            "eigth": {
+            "eighth": {
                 "name": topFiveNames[7],
                 "symbol": topFiveSymbols[7],
                 "ocurrences": topFiveValues[7],
@@ -252,8 +252,11 @@ def searchStock(request):
             comments += submission.num_comments
 
     # Calculate popularity metric from stored data
-    comment_ave = upvote_ratio_sum / num_submissions
-    popularity = math.log(comments * comment_ave) * num_submissions
+    if companyFrequency[index] == 0 or sum_comments[index] == 0 or upvote_ratio_sum[index] == 0:
+        popularity[index] = 0
+    else:
+        comment_ave = upvote_ratio_sum / num_submissions
+        popularity = math.log(comments * comment_ave) * num_submissions
 
     # Package for nice and tidy return to Flutter
     return JsonResponse(
