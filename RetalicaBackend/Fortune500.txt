@@ -51,7 +51,6 @@ Arthur J. Gallagher
 Asbury Automotive Group
 Ascena Retail Group
 Assurant
-Auto-Owners Insurance
 AutoNation
 AutoZone
 Autoliv
@@ -93,7 +92,6 @@ CMS Energy
 CSX
 CVS Health
 Caesars Entertainment
-Calpine
 Campbell Soup
 Capital One Financial
 CarMax
@@ -181,10 +179,8 @@ Exelon
 Expedia Group
 Expeditors Intl. of Washington
 Exxon Mobil
-FM Global
 Facebook
 Fannie Mae
-Farmers Insurance Exchange
 FedEx
 Fidelity National Financial
 Fidelity National Information Services
@@ -199,7 +195,6 @@ Fortive
 Fortune Brands Home & Security
 Fox
 Franklin Resources
-Freddie Mac
 Freeport-McMoRan
 Frontier Communications
 GameStop
@@ -215,9 +210,7 @@ Global Partners
 Goldman Sachs Group
 Goodyear Tire & Rubber
 Graphic Packaging Holding
-Graybar Electric
 Group 1 Automotive
-Guardian Life Ins. Co. of America
 HCA Healthcare
 HD Supply Holdings
 HP
@@ -251,14 +244,12 @@ International Paper
 Interpublic Group
 Intuit
 J.B. Hunt Transport Services
-J.C. Penney
 J.M. Smucker
 JPMorgan Chase
 Jabil
 Jacobs Engineering Group
 JetBlue Airways
 Johnson & Johnson
-Jones Financial
 Jones Lang LaSalle
 KKR
 Kellogg
@@ -274,14 +265,12 @@ L3Harris Technologies
 LKQ
 Laboratory Corp. of America
 Lam Research
-Land O'Lakes
 Las Vegas Sands
 Lear
 Leidos Holdings
 Lennar
 Levi Strauss
 Liberty Media
-Liberty Mutual Insurance Group
 Lincoln National
 Lithia Motors
 Live Nation Entertainment
@@ -299,7 +288,6 @@ Marriott International
 Marsh & McLennan
 MasTec
 Masco
-Massachusetts Mutual Life Insurance
 Mastercard
 McDonald's
 McKesson
@@ -315,17 +303,14 @@ Morgan Stanley
 Mosaic
 Motorola Solutions
 Murphy USA
-Mutual of Omaha Insurance
 NCR
 NGL Energy Partners
 NRG Energy
 NVR
 National Oilwell Varco
-Nationwide
 Navistar International
 NetApp
 Netflix
-New York Life Insurance
 Newell Brands
 Newmont
 News Corp.
@@ -335,7 +320,6 @@ Nordstrom
 Norfolk Southern
 Northern Trust
 Northrop Grumman
-Northwestern Mutual
 Nucor
 Nvidia
 O'Reilly Automotive
@@ -358,14 +342,12 @@ PPG Industries
 PPL
 PVH
 Paccar
-Pacific Life
 Packaging Corp. of America
 Parker-Hannifin
 PayPal Holdings
 Penske Automotive Group
 PepsiCo
 Performance Food Group
-Peter Kiewit Sons'
 Pfizer
 Philip Morris International
 Phillips 66
@@ -378,7 +360,6 @@ Procter & Gamble
 Progressive
 Prudential Financial
 Public Service Enterprise Group
-Publix Super Markets
 PulteGroup
 Qualcomm
 Quanta Services
@@ -405,7 +386,6 @@ S&P Global
 Sanmina
 Science Applications International
 Seaboard
-Securian Financial Group
 Sempra Energy
 Sherwin-Williams
 Simon Property Group
@@ -480,7 +460,6 @@ Waste Management
 Wayfair
 Wells Fargo
 WestRock
-Western & Southern Financial Group
 Western Digital
 Westinghouse Air Brake
 Westlake Chemical

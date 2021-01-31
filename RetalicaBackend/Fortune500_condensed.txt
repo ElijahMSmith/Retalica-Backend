@@ -51,7 +51,6 @@ Arthur J. Gallagher
 Asbury Auto
 Ascena
 Assurant
-Auto-Owners Insurance
 AutoNation
 AutoZone
 Autoliv
@@ -93,7 +92,6 @@ CMS
 CSX
 CVS
 Caesars
-Calpine
 Campbell Soup
 Capital One
 CarMax
@@ -181,10 +179,8 @@ Exelon
 Expedia
 Expeditors Intl.
 Exxon Mobil
-FM
 Facebook
 Fannie Mae
-Farmers Insurance
 FedEx
 Fidelity National Financial
 Fidelity National Information
@@ -199,7 +195,6 @@ Fortive
 Fortune Brands Home
 Fox
 Franklin Resources
-Freddie Mac
 Freeport-McMoRan
 Frontier Comm
 GameStop
@@ -215,9 +210,7 @@ Global Partners
 Goldman Sachs
 Goodyear
 Graphic Packaging
-Graybar
 Group 1 Automotive
-Guardian Life Ins
 HCA
 HD Supply
 HP
@@ -251,14 +244,12 @@ International Paper
 Interpublic Group
 Intuit
 J.B. Hunt
-J.C. Penney
 J.M. Smucker
 JPMorgan Chase
 Jabil
 Jacobs Engineering
 JetBlue
 Johnson & Johnson
-Jones Financial
 Jones Lang LaSalle
 KKR
 Kellogg
@@ -274,14 +265,12 @@ L3Harris
 LKQ
 Laboratory Corp
 Lam
-Land O'Lakes
 Las Vegas Sands
 Lear
 Leidos
 Lennar
 Levi Strauss
 Liberty Media
-Liberty Mutual
 Lincoln National
 Lithia Motors
 Live Nation
@@ -299,7 +288,6 @@ Marriott
 Marsh & McLennan
 MasTec
 Masco
-Massachusetts Mutual
 Mastercard
 McDonald's
 McKesson
@@ -315,17 +303,14 @@ Morgan Stanley
 Mosaic
 Motorola
 Murphy
-Mutual of Omaha
 NCR
 NGL
 NRG
 NVR
 Varco
-Nationwide
 Navistar
 NetApp
 Netflix
-New York Life
 Newell
 Newmont
 News Corp
@@ -335,7 +320,6 @@ Nordstrom
 Norfolk Southern
 Northern Trust
 Northrop Grumman
-Northwestern Mutual
 Nucor
 Nvidia
 O'Reilly
@@ -358,14 +342,12 @@ PPG
 PPL
 PVH
 Paccar
-Pacific Life
 Packaging Corp
 Parker-Hannifin
 PayPal
 Penske
 PepsiCo
 Performance Food
-Peter Kiewit
 Pfizer
 Philip Morris
 Phillips 66
@@ -378,7 +360,6 @@ Procter & Gamble
 Progressive
 Prudential Financial
 Public Service Enterprise
-Publix
 PulteGroup
 Qualcomm
 Quanta
@@ -405,7 +386,6 @@ S&P
 Sanmina
 Science Applications
 Seaboard
-Securian
 Sempra
 Sherwin-Williams
 Simon
@@ -480,7 +460,6 @@ Waste Management
 Wayfair
 Wells Fargo
 WestRock
-Western & Southern
 Western Digital
 Westinghouse
 Westlake Chemical
