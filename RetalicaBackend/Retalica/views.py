@@ -58,7 +58,6 @@ def topStocks(reddit):
         client_secret="JOM9pkVc3g6aufzohc1mDDP1EOEBhw"
     )
 
-
     companyFrequency = [0] * 500
 
     # Holds important data for calculating our popularity metric
@@ -79,11 +78,12 @@ def topStocks(reddit):
     for submission in reddit.subreddit("wallstreetbets").hot(limit=500):
         # Check each if each company's short-form name appears in the title (case insensitive)
         for index in range(0, 500):
-            matchCaseTitle = submission.title.lower()
+            matchCaseTitle = " " + submission.title.lower() + " "
             currentCompany = shortCompanyArray[index]
             currentSymbol = symbolArray[index].lower()
             # We check length here because we don't want to compare symbols that are one character like 'A',
                 # which could appear in a title as a legitimate English word.
+            #debugFail = 1/0
             if matchCaseTitle.find(currentCompany) != -1 or (len(currentSymbol) > 3 and matchCaseTitle.find(currentSymbol) != -1):
                 # If so, note we found another matching submission and store popularity data
                 companyFrequency[index] += 1
@@ -197,7 +197,7 @@ def searchStock(request):
     # Prep for JSON extraction from GET request
     json_data = None
     print(request.GET)
-    stock = request.GET.get('q')
+    stock = " " + request.GET.get('q') + " "
     # stock = '' # For submission
     # stock = 'gamestop' # For testing
     num_submissions = 0
@@ -220,7 +220,7 @@ def searchStock(request):
     '''
 
     # Ignore stock case
-    stock = stock.lower()
+    stock = stock.upper()
     
     # Find the other representation of the stock, either the name or the symbol (whatever isn't supplied)
     # Checks for this stock string to be in one of our loaded lists, takes the same index from the one it's not found in
@@ -233,9 +233,10 @@ def searchStock(request):
             stockAlternative = shortCompanyArray[index]
             break
 
-
+        
     # Ignore stockAlternative case
     stockAlternative = stockAlternative.lower()
+    stock = stock.lower()
 
     # Connect to Reddit
     reddit = praw.Reddit(
@@ -247,12 +248,13 @@ def searchStock(request):
     # For each of the 500 most host posts on r/wallstreetbets,
     for submission in reddit.subreddit("wallstreetbets").hot(limit=500):
         # Get the title in lower case
-        matchCaseTitle = submission.title.lower()
+        matchCaseTitle = " " + submission.title.lower() + " "
         # Check if the stock name or symbol appears in the title.
         # Again, we check length because we don't want to compare symbols that are one character like 'A',
             # which could appear in a title as a legitimate English word.
             # The check is on both strings this time since we don't know which one is the symbol and which is the name
-        if (len(stock) >= 3 and matchCaseTitle.find(stock) != -1) or (len(stockAlternative) >= 3 and matchCaseTitle.find(stockAlternative) != -1):
+        #debugFail = 1/0
+        if (len(stock) >= 3 and matchCaseTitle.find(stock) != -1) or (len(stockAlternative) > 3 and matchCaseTitle.find(stockAlternative) != -1):
             # Store data if we find a matching submission
             num_submissions += 1
             upvote_ratio_sum += submission.upvote_ratio
@@ -269,7 +271,7 @@ def searchStock(request):
     #d = 1/0
     return JsonResponse(
         {
-            "stock": stock,
+            "stock": stock.rstrip().lstrip().upper(),
             "submissionCount": num_submissions,
             "num_comments": comments,
             "popularity_score": popularity,
