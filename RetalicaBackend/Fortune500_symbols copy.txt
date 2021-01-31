@@ -51,7 +51,6 @@
  ABG 
  ASNA 
  AIZ 
-  
  AN 
  AZO 
  ALV 
@@ -93,7 +92,6 @@
  CSX 
  CVS 
  CZR 
-  
  CPB 
  COF 
  KMX 
@@ -181,10 +179,8 @@
  EXPE 
  EXPD 
  XOM 
-  
  FB 
  FNMA 
-  
  FDX 
  FNF 
  FIS 
@@ -199,7 +195,6 @@
  FBHS 
  FOX 
  BEN 
-  
  FCX 
  FTR 
  GME 
@@ -215,9 +210,7 @@
  GS 
  GT 
  GPK 
-  
  GPI 
-  
  HCA 
  HDS 
  BBL 
@@ -251,14 +244,12 @@
  IPG 
  INTU 
  JBHT 
-  
  SJM 
  JPM 
  JBL 
  J 
  JBLU 
  JNJ 
-  
  JLL 
  FSK 
  K 
@@ -274,14 +265,12 @@
  LKQ 
  LH 
  LRCX 
-  
  LVS 
  LEA 
  LDOS 
  LEN 
  LEVI 
  FWONA 
-  
  LNC 
  LAD 
  LYV 
@@ -299,7 +288,6 @@
  MMC 
  MTZ 
  MAS 
-  
  MA 
  MCD 
  MCK 
@@ -315,17 +303,14 @@
  MOS 
  MSI 
  MUSA 
-  
  NCR 
  NGL 
  NRG 
  NVR 
  NOV 
-  
  NAV 
  NTAP 
  NFLX 
-  
  NWL 
  NEM 
  NWSA 
@@ -335,7 +320,6 @@
  NSC 
  NTRS 
  NOC 
-  
  NUE 
  NVDA 
  ORLY 
@@ -358,14 +342,12 @@
  PPL 
  PVH 
  PCAR 
-  
  PKG 
  PH 
  PYPL 
  PAG 
  PEP 
  PFGC 
-  
  PFE 
  PM 
  PSX 
@@ -378,7 +360,6 @@
  PGR 
  PRU 
  PEG 
-  
  PHM 
  QCOM 
  PWR 
@@ -405,7 +386,6 @@
  SANM 
  SAIC 
  SEB 
-  
  SRE 
  SHW 
  SPG 
@@ -480,7 +460,6 @@
  W 
  WFC 
  WRK 
-  
  WDC 
  WAB 
  WLK 
@@ -497,4 +476,4 @@
  ZBH 
  ZTS 
  EBAY 
- CRM 
+ CRM

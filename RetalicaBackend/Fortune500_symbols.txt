@@ -477,3 +477,39 @@
  ZTS 
  EBAY 
  CRM
+ NOK 
+ ESGV 
+ STKL 
+ EGAN 
+ AMC 
+ OSBC 
+ HMI 
+ NTLA 
+ IWM 
+ LADR 
+ VRNT 
+ AGR 
+ TGT 
+ CLGX 
+ KURA 
+ BELFA 
+ INOD 
+ CULP 
+ ACN 
+ RADA 
+ RBC 
+ BCDA 
+ MTL 
+ PAE 
+ DWUS 
+ DFFN 
+ IMLP 
+ UAA 
+ CCL 
+ AMBA 
+ HA 
+ LULU 
+ BMO 
+ TD 
+ DASH 
+ ABNB 
