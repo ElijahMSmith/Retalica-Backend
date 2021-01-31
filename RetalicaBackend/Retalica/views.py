@@ -166,15 +166,17 @@ def searchStock(request):
     '''
 
     stock = stock.lower()
-    stockAlternative = ""
+    stockAlternative = ''
 
     for index in range(0, 500):
-        if(fullCompanyArray[index].find(stock) != -1):
+        if(fullCompanyArray[index].lower().find(stock) != -1):
             stockAlternative = symbolArray[index]
             break
         elif(symbolArray[index].find(stock) != -1):
             stockAlternative = shortCompanyArray[index]
             break
+
+    stockAlternative = stockAlternative.lower()
 
     reddit = praw.Reddit(
         user_agent="Retalica Stock Popularity Analysis",
@@ -198,6 +200,5 @@ def searchStock(request):
             "submissionCount": num_submissions,
             "num_comments": comments,
             "popularity_score": popularity,
-
         }
     )
