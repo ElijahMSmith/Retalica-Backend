@@ -128,7 +128,7 @@ def topStocks(reddit):
     # Return our top 10 and relevant data to display in a consistent JSON format
     #d = 1/0
 
-    return JsonResponse(
+    response = JsonResponse(
         {
             "first": {
                 "name": topFiveNames[0],
@@ -192,6 +192,11 @@ def topStocks(reddit):
             },
         }
     )
+    response["Access-Control-Allow-Origin"] = "*"
+    response["Access-Control-Allow-Methods"] = "GET, OPTIONS"
+    response["Access-Control-Max-Age"] = "1000"
+    response["Access-Control-Allow-Headers"] = "X-Requested-With, Content-Type"
+    return response
 
 def searchStock(request):
     # Prep for JSON extraction from GET request
@@ -269,7 +274,7 @@ def searchStock(request):
 
     # Package for nice and tidy return to Flutter
     #d = 1/0
-    return JsonResponse(
+    response = JsonResponse(
         {
             "stock": stock.rstrip().lstrip().upper(),
             "submissionCount": num_submissions,
@@ -277,6 +282,11 @@ def searchStock(request):
             "popularity_score": popularity,
         }
     )
+    response["Access-Control-Allow-Origin"] = "*"
+    response["Access-Control-Allow-Methods"] = "GET, OPTIONS"
+    response["Access-Control-Max-Age"] = "1000"
+    response["Access-Control-Allow-Headers"] = "X-Requested-With, Content-Type"
+    return response
 
 def test(request):
     print(request.GET)
