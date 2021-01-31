@@ -40,7 +40,7 @@ LOGGING = {
     },
 }
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['retalica-ea6wfw4i4a-ue.a.run.app', '.localhost', '127.0.0.1', '[::1]']
 
 
 # Application definition
