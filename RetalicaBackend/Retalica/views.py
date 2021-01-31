@@ -7,16 +7,23 @@ import math
 
 logger = logging.getLogger(__name__)
 
-# This should be expanded as much as text editing allows
-# However, if this becomes much larger, we need to increase efficiency here
+# Load up company data
+
+# Holds the full stock market listing of the company
 companyListFull = open('Fortune500.txt', 'r')
+# Holds a shortened version of the name that only includes key phrases
+    # Used for comparisons to improve search accuracy
 companyListShort = open('Fortune500_condensed.txt', 'r')
+# Holds the company's ticker/symbol used to identify their stock
 companyListSymbol = open('Fortune500_symbols.txt', 'r')
+
+# Where this data will be loaded to
 fullCompanyArray = [""] * 500
 shortCompanyArray = [""] * 500
 symbolArray = [""] * 500
 companyFrequency = [0] * 500
 
+# Read shortened names to list
 index = 0
 shortLine = companyListShort.readline()
 while shortLine != '':
@@ -25,6 +32,7 @@ while shortLine != '':
     shortLine = companyListShort.readline()
     index += 1
 
+# Read full names to list
 index = 0
 fullLine = companyListFull.readline()
 while fullLine != '':
@@ -33,6 +41,7 @@ while fullLine != '':
     fullLine = companyListFull.readline()
     index += 1
 
+# Read symbols to list
 index = 0
 symbolLine = companyListSymbol.readline()
 while symbolLine != '':
@@ -43,67 +52,78 @@ while symbolLine != '':
 
 def topStocks(reddit):
 
+    # Connect to Reddit
     reddit = praw.Reddit(
         user_agent="Retalica Stock Popularity Analysis",
         client_id="oylqrww5RDa-RQ",
         client_secret="JOM9pkVc3g6aufzohc1mDDP1EOEBhw"
     )
-
-    # Needs several performance improvements here
-
-    # company stats arrays
     
+    # Holds important data for calculating our popularity metric
+    # Each index is consistent per company for all lists used (including loaded above)
     upvote_ratio_sum = [0] * 500
     sum_comments = [0] * 500
     popularity = [0] * 500
 
+    # For each post in r/wallstreetbets under hot (500 max retrieved),
     for submission in reddit.subreddit("wallstreetbets").hot(limit=500):
+        # Check each if each company's short-form name appears in the title (case insensitive)
         for index in range(0, 500):
             matchCaseTitle = submission.title.lower()
             currentCompany = shortCompanyArray[index]
             currentSymbol = symbolArray[index].lower()
+            # We check length here because we don't want to compare symbols that are one character like 'A',
+                # which could appear in a title as a legitimate English word.
             if matchCaseTitle.find(currentCompany) != -1 or (len(currentSymbol) > 3 and matchCaseTitle.find(currentSymbol) != -1):
+                # If so, note we found another matching submission and store popularity data
                 companyFrequency[index] += 1
                 upvote_ratio_sum[index] += submission.upvote_ratio
                 sum_comments[index] += submission.num_comments
 
 
-    #calculate popularity 
+    # Calculate popularity metric for each company
     for index in range(0, 500):
+        # If not mentioned in any post, avoid zero division and simply set to 0
         if companyFrequency[index] == 0:
             popularity[index] = 0
+        # Otherwise, calculate the popularity from saved data
         else:
             popularity[index] = math.log(sum_comments[index] * (upvote_ratio_sum[index] / companyFrequency[index])) * companyFrequency[index]
 
-    # 6th listing is ignored, just overwrites itself 
-        # Used to prevent index going out of bounds
+    # Initial empty state of arrays storing data for top 10 popular top stocks
+    # As we go through additional companies, they will slot in their ranking and the rest slide down as needed
+        # Over time, this will sort into the corrent top 10 stocks
     topFiveNames = ["", "", "", "", "", "", "", "", "", ""]
     topFiveSymbols = ["", "", "", "", "", "", "", "", "", ""]
     topFiveValues = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
     topFivePops = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
+    # For each stock, get all stock data we have
     for index in range(0, 500):
         currentCompany = fullCompanyArray[index]
         currentSymbol = symbolArray[index]
         count = companyFrequency[index]
         pop = popularity[index]
         
+        # Starting form the front, check if this stock is more popular than one in the current rankings
         for j in range(0, 10):
-            # Current approach favors earlier loaded stock in ties (since ties aren't grounds for removal
-            # Future work could hold other details to break ties
+            # If we find a slot for this stock,
             if pop > topFivePops[j]:
-                # Push all lower elements (including i) down one, then insert at i
+                # Push all lower elements (including element at j that is smaller) down one
+                # We start from the end - 1 so that the data overwrites itself and we avoid out of bounds issues
                 for k in range(3, j-1, -1):
                     topFiveNames[k + 1] = topFiveNames[k]
                     topFiveSymbols[k + 1] = topFiveSymbols[k]
                     topFiveValues[k + 1] = topFiveValues[k]
                     topFivePops[k + 1] = topFivePops[k]
+                # Now that our data has been shifted, we can insert at j
                 topFiveNames[j] = currentCompany
                 topFiveSymbols[j] = currentSymbol.rstrip().lstrip()
                 topFiveValues[j] = count
                 topFivePops[j] = pop
                 break
 
+    # Return our top 10 and relevant data to display in a consistent JSON format
     return JsonResponse(
         {
             "first": {
@@ -168,15 +188,11 @@ def topStocks(reddit):
             },
         }
     )
-    # Other ways to improve hits:
-         # Also try with stock abbreviations
 
 def searchStock(request):
-    # Other methods of sorting
-    # .hot(), .controversial(), .new(), .rising(), .top(time_filter: str = 'all')
-    
+    # Prep for JSON extraction from GET request
     json_data = None
-    # stock = ''
+    # stock = '' # For submission
     stock = 'gamestop' # For testing
     num_submissions = 0
     upvote_ratio_sum = 0
@@ -186,6 +202,8 @@ def searchStock(request):
 
     # Work on once we get Flutter-Django connection
     # Wildly untested and likely to be completely wrong
+
+    # Get the JSON object from the body of the request and get the stock requested
     '''
     # TODO: I don't know what request.is_ajax is or does
     # I assume we're using GET, other option being POST
@@ -195,9 +213,12 @@ def searchStock(request):
             stock = json_data['stock']
     '''
 
+    # Ignore stock case
     stock = stock.lower()
+    
+    # Find the other representation of the stock, either the name or the symbol (whatever isn't supplied)
+    # Checks for this stock string to be in one of our loaded lists, takes the same index from the one it's not found in
     stockAlternative = ''
-
     for index in range(0, 500):
         if(fullCompanyArray[index].lower().find(stock) != -1):
             stockAlternative = symbolArray[index]
@@ -206,25 +227,35 @@ def searchStock(request):
             stockAlternative = shortCompanyArray[index]
             break
 
+    # Ignore stockAlternative case
     stockAlternative = stockAlternative.lower()
 
+    # Connect to Reddit
     reddit = praw.Reddit(
         user_agent="Retalica Stock Popularity Analysis",
         client_id="oylqrww5RDa-RQ",
         client_secret="JOM9pkVc3g6aufzohc1mDDP1EOEBhw"
     )
 
+    # For each of the 500 most host posts on r/wallstreetbets,
     for submission in reddit.subreddit("wallstreetbets").hot(limit=500):
+        # Get the title in lower case
         matchCaseTitle = submission.title.lower()
-        # Search for either stock or symbol, as long as it's enough characters to consider
+        # Check if the stock name or symbol appears in the title.
+        # Again, we check length because we don't want to compare symbols that are one character like 'A',
+            # which could appear in a title as a legitimate English word.
+            # The check is on both strings this time since we don't know which one is the symbol and which is the name
         if (len(stock) >= 3 and matchCaseTitle.find(stock) != -1) or (len(stockAlternative) >= 3 and matchCaseTitle.find(stockAlternative) != -1):
+            # Store data if we find a matching submission
             num_submissions += 1
             upvote_ratio_sum += submission.upvote_ratio
             comments += submission.num_comments
 
+    # Calculate popularity metric from stored data
     comment_ave = upvote_ratio_sum / num_submissions
     popularity = math.log(comments * comment_ave) * num_submissions
 
+    # Package for nice and tidy return to Flutter
     return JsonResponse(
         {
             "submissionCount": num_submissions,
