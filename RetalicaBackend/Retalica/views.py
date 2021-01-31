@@ -205,7 +205,6 @@ def searchStock(request):
     upvote_ratio_sum = 0
 
     comments = 0
-    log_comments = 0
 
     # Work on once we get Flutter-Django connection
     # Wildly untested and likely to be completely wrong
