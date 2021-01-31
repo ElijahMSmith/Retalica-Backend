@@ -6,7 +6,7 @@ import logging
 import math
 
 #CONSTANTS
-STOCK_NUM = 500
+STOCK_NUM = 515
 
 logger = logging.getLogger(__name__)
 
