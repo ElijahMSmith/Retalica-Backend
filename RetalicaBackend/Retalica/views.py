@@ -77,10 +77,10 @@ def topStocks(reddit):
 
     # 6th listing is ignored, just overwrites itself 
         # Used to prevent index going out of bounds
-    topFiveNames = ["", "", "", "", ""]
-    topFiveSymbols = ["", "", "", "", ""]
-    topFiveValues = [-1, -1, -1, -1, -1]
-    topFivePops = [-1, -1, -1, -1, -1]
+    topFiveNames = ["", "", "", "", "", "", "", "", "", ""]
+    topFiveSymbols = ["", "", "", "", "", "", "", "", "", ""]
+    topFiveValues = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+    topFivePops = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
     for index in range(0, 500):
         currentCompany = fullCompanyArray[index]
@@ -88,10 +88,10 @@ def topStocks(reddit):
         count = companyFrequency[index]
         pop = popularity[index]
         
-        for j in range(0, 5):
+        for j in range(0, 10):
             # Current approach favors earlier loaded stock in ties (since ties aren't grounds for removal
             # Future work could hold other details to break ties
-            if count > topFiveValues[j]:
+            if pop > topFivePops[j]:
                 # Push all lower elements (including i) down one, then insert at i
                 for k in range(3, j-1, -1):
                     topFiveNames[k + 1] = topFiveNames[k]
@@ -135,6 +135,36 @@ def topStocks(reddit):
                 "symbol": topFiveSymbols[4],
                 "ocurrences": topFiveValues[4],
                 "popularity": topFivePops[4],
+            },
+            "sixth": {
+                "name": topFiveNames[5],
+                "symbol": topFiveSymbols[5],
+                "ocurrences": topFiveValues[5],
+                "popularity": topFivePops[5],
+            },
+            "seventh": {
+                "name": topFiveNames[6],
+                "symbol": topFiveSymbols[6],
+                "ocurrences": topFiveValues[6],
+                "popularity": topFivePops[6],
+            },
+            "eigth": {
+                "name": topFiveNames[7],
+                "symbol": topFiveSymbols[7],
+                "ocurrences": topFiveValues[7],
+                "popularity": topFivePops[7],
+            },
+            "ninth": {
+                "name": topFiveNames[8],
+                "symbol": topFiveSymbols[8],
+                "ocurrences": topFiveValues[8],
+                "popularity": topFivePops[8],
+            },
+            "tenth": {
+                "name": topFiveNames[9],
+                "symbol": topFiveSymbols[9],
+                "ocurrences": topFiveValues[9],
+                "popularity": topFivePops[9],
             },
         }
     )
