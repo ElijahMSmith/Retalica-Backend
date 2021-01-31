@@ -5,6 +5,9 @@ import json
 import logging
 import math
 
+#CONSTANTS
+STOCK_NUM = 500
+
 logger = logging.getLogger(__name__)
 
 # Load up company data
@@ -18,9 +21,9 @@ companyListShort = open('Fortune500_condensed.txt', 'r')
 companyListSymbol = open('Fortune500_symbols.txt', 'r')
 
 # Where this data will be loaded to
-fullCompanyArray = [""] * 500
-shortCompanyArray = [""] * 500
-symbolArray = [""] * 500
+fullCompanyArray = [""] * STOCK_NUM
+shortCompanyArray = [""] * STOCK_NUM
+symbolArray = [""] * STOCK_NUM
 
 # Read shortened names to list
 index = 0
@@ -58,13 +61,13 @@ def topStocks(reddit):
         client_secret="JOM9pkVc3g6aufzohc1mDDP1EOEBhw"
     )
 
-    companyFrequency = [0] * 500
+    companyFrequency = [0] * STOCK_NUM
 
     # Holds important data for calculating our popularity metric
     # Each index is consistent per company for all lists used (including loaded above)
-    upvote_ratio_sum = [0] * 500
-    sum_comments = [0] * 500
-    popularity = [0] * 500
+    upvote_ratio_sum = [0] * STOCK_NUM
+    sum_comments = [0] * STOCK_NUM
+    popularity = [0] * STOCK_NUM
 
     # Initial empty state of arrays storing data for top 10 popular top stocks
     # As we go through additional companies, they will slot in their ranking and the rest slide down as needed
@@ -77,7 +80,7 @@ def topStocks(reddit):
     # For each post in r/wallstreetbets under hot (500 max retrieved),
     for submission in reddit.subreddit("wallstreetbets").hot(limit=500):
         # Check each if each company's short-form name appears in the title (case insensitive)
-        for index in range(0, 500):
+        for index in range(0, STOCK_NUM):
             matchCaseTitle = " " + submission.title.lower() + " "
             currentCompany = shortCompanyArray[index]
             currentSymbol = symbolArray[index].lower()
@@ -92,7 +95,7 @@ def topStocks(reddit):
 
 
     # Calculate popularity metric for each company
-    for index in range(0, 500):
+    for index in range(0, STOCK_NUM):
         # If not mentioned in any post, avoid zero division and simply set to 0
         if companyFrequency[index] == 0 or sum_comments[index] == 0 or upvote_ratio_sum[index] == 0:
             popularity[index] = 0
@@ -101,7 +104,7 @@ def topStocks(reddit):
             popularity[index] = math.log(sum_comments[index] * (upvote_ratio_sum[index] / companyFrequency[index])) * companyFrequency[index]
 
     # For each stock, get all stock data we have
-    for index in range(0, 500):
+    for index in range(0, STOCK_NUM):
         currentCompany = fullCompanyArray[index]
         currentSymbol = symbolArray[index]
         count = companyFrequency[index]
@@ -225,7 +228,7 @@ def searchStock(request):
     # Find the other representation of the stock, either the name or the symbol (whatever isn't supplied)
     # Checks for this stock string to be in one of our loaded lists, takes the same index from the one it's not found in
     stockAlternative = ''
-    for index in range(0, 500):
+    for index in range(0, STOCK_NUM):
         if(fullCompanyArray[index].lower().find(stock) != -1):
             stockAlternative = symbolArray[index]
             break
