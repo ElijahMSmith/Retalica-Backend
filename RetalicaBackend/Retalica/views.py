@@ -199,12 +199,8 @@ def topStocks(reddit):
     return response
 
 def searchStock(request):
-    # Prep for JSON extraction from GET request
-    json_data = None
     print(request.GET)
     stock = " " + request.GET.get('q') + " "
-    # stock = '' # For submission
-    # stock = 'gamestop' # For testing
     num_submissions = 0
     upvote_ratio_sum = 0
 
