@@ -21,7 +21,6 @@ companyListSymbol = open('Fortune500_symbols.txt', 'r')
 fullCompanyArray = [""] * 500
 shortCompanyArray = [""] * 500
 symbolArray = [""] * 500
-companyFrequency = [0] * 500
 
 # Read shortened names to list
 index = 0
@@ -58,15 +57,26 @@ def topStocks(reddit):
         client_id="oylqrww5RDa-RQ",
         client_secret="JOM9pkVc3g6aufzohc1mDDP1EOEBhw"
     )
-    
+
+
+    companyFrequency = [0] * 500
+
     # Holds important data for calculating our popularity metric
     # Each index is consistent per company for all lists used (including loaded above)
     upvote_ratio_sum = [0] * 500
     sum_comments = [0] * 500
     popularity = [0] * 500
 
+    # Initial empty state of arrays storing data for top 10 popular top stocks
+    # As we go through additional companies, they will slot in their ranking and the rest slide down as needed
+    # Over time, this will sort into the corrent top 10 stocks
+    topFiveNames = ["", "", "", "", "", "", "", "", "", ""]
+    topFiveSymbols = ["", "", "", "", "", "", "", "", "", ""]
+    topFiveValues = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+    topFivePops = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+
     # For each post in r/wallstreetbets under hot (500 max retrieved),
-    for submission in reddit.subreddit("wallstreetbets").hot(limit=1000):
+    for submission in reddit.subreddit("wallstreetbets").hot(limit=500):
         # Check each if each company's short-form name appears in the title (case insensitive)
         for index in range(0, 500):
             matchCaseTitle = submission.title.lower()
@@ -89,14 +99,6 @@ def topStocks(reddit):
         # Otherwise, calculate the popularity from saved data
         else:
             popularity[index] = math.log(sum_comments[index] * (upvote_ratio_sum[index] / companyFrequency[index])) * companyFrequency[index]
-
-    # Initial empty state of arrays storing data for top 10 popular top stocks
-    # As we go through additional companies, they will slot in their ranking and the rest slide down as needed
-        # Over time, this will sort into the corrent top 10 stocks
-    topFiveNames = ["", "", "", "", "", "", "", "", "", ""]
-    topFiveSymbols = ["", "", "", "", "", "", "", "", "", ""]
-    topFiveValues = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
-    topFivePops = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 
     # For each stock, get all stock data we have
     for index in range(0, 500):
@@ -124,6 +126,8 @@ def topStocks(reddit):
                 break
 
     # Return our top 10 and relevant data to display in a consistent JSON format
+    #d = 1/0
+
     return JsonResponse(
         {
             "first": {
@@ -192,8 +196,10 @@ def topStocks(reddit):
 def searchStock(request):
     # Prep for JSON extraction from GET request
     json_data = None
+    print(request.GET)
+    stock = request.GET.get('q')
     # stock = '' # For submission
-    stock = 'gamestop' # For testing
+    # stock = 'gamestop' # For testing
     num_submissions = 0
     upvote_ratio_sum = 0
 
@@ -227,6 +233,7 @@ def searchStock(request):
             stockAlternative = shortCompanyArray[index]
             break
 
+
     # Ignore stockAlternative case
     stockAlternative = stockAlternative.lower()
 
@@ -252,17 +259,23 @@ def searchStock(request):
             comments += submission.num_comments
 
     # Calculate popularity metric from stored data
-    if companyFrequency[index] == 0 or sum_comments[index] == 0 or upvote_ratio_sum[index] == 0:
-        popularity[index] = 0
+    if num_submissions == 0 or comments == 0 or upvote_ratio_sum == 0:
+        popularity = 0
     else:
         comment_ave = upvote_ratio_sum / num_submissions
         popularity = math.log(comments * comment_ave) * num_submissions
 
     # Package for nice and tidy return to Flutter
+    d = 1/0
     return JsonResponse(
         {
+            "stock": stock,
             "submissionCount": num_submissions,
             "num_comments": comments,
             "popularity_score": popularity,
         }
     )
+
+def test(request):
+    print(request.GET)
+    return JsonResponse({})
